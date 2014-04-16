@@ -166,10 +166,13 @@ int chessBoardArray[8][8] = {
                 printf("DEBUG: Server<%d>  player %s turn\n", getpid(), playerOne);
 
                 printf("DEBUG: Server<%d>  player  %s  send board\n", getpid(), playerOne);
-                send(clientSock1, &chessBoardArray, sizeof(chessBoardArray), 0);
+                //send(clientSock1, &chessBoardArray, sizeof(chessBoardArray), 0);
+                send(clientSock1, chessBoardArray, sizeof(chessBoardArray), 0);
 
                 printf("DEBUG: Server<%d>  player  %s  rec board\n", getpid(), playerOne);
-                recv(clientSock1, &chessBoardArray, sizeof(chessBoardArray), 0);
+
+                //recv(clientSock1, &chessBoardArray, sizeof(chessBoardArray), 0);
+                recv(clientSock1, chessBoardArray, sizeof(chessBoardArray), 0);
 
                 printf("DEBUG: Server<%d>  player  %s  rec winner\n", getpid(), playerOne);
                 recv(clientSock1, &winner, sizeof(winner), 0);
@@ -183,10 +186,11 @@ int chessBoardArray[8][8] = {
 
 
                 printf("DEBUG: Server<%d>  player %s turn\n", getpid(), playerTwo);
-                send(clientSock2, &chessBoardArray, sizeof(chessBoardArray),0);
-
+                //send(clientSock2, &chessBoardArray, sizeof(chessBoardArray),0);
+                send(clientSock2, chessBoardArray, sizeof(chessBoardArray),0);
                 printf("DEBUG: Server<%d>  player  %s  rec board\n", getpid(), playerTwo);
-                recv(clientSock2, &chessBoardArray, sizeof(chessBoardArray),0);
+                //recv(clientSock2, &chessBoardArray, sizeof(chessBoardArray),0);
+                recv(clientSock2, chessBoardArray, sizeof(chessBoardArray),0);
 
                 printf("DEBUG: Server<%d>  player %s rec winner\n", getpid(), playerTwo);
                 recv(clientSock2, &winner, sizeof(winner),0);
